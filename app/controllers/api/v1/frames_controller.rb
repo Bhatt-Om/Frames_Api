@@ -35,6 +35,6 @@ class Api::V1::FramesController < ApplicationController
   private
 
   def frame_params
-    params.require(:frame).permit(:price, :discount, images: [], types_of_frame: [], types_of_material: [], no_of_frames: [], color: [], frame_size: {})
+    params.require(:frame).permit(:price, :discount, images: [], types_of_frame: [], no_of_frames: [], color: [], types_of_material: {}, frame_size: {})
   end
 end
