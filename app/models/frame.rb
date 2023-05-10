@@ -1,8 +1,5 @@
 class Frame < ApplicationRecord
-  has_many_attached :images
-  serialize :types_of_frame, Array
-  serialize :types_of_material, JSON
-  serialize :no_of_frames, Array
+  has_many_attached :images, dependent: :purge
+  serialize :frame_size, Hash
   serialize :color, Array
-  serialize :frame_size, JSON
 end
