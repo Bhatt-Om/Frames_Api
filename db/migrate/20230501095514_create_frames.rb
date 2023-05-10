@@ -7,7 +7,7 @@ class CreateFrames < ActiveRecord::Migration[7.0]
       t.text :color
       t.text :frame_size
       t.string :discount
-      t.string :price
+      t.integer :price
       
       t.timestamps
     end

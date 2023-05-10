@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_095514) do
     t.text "color"
     t.text "frame_size"
     t.string "discount"
-    t.string "price"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
