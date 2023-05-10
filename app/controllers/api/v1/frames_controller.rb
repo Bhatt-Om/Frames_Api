@@ -11,6 +11,10 @@ class Api::V1::FramesController < ApplicationController
     if params[:no_frames].present?
       frames = frames.where(no_of_frames: params[:no_frames])
     end
+    if params[:start] && params[:end].present?
+      range = [(params[:start]).to_i..(params[:end]).to_i]
+      frames = frames.where(price: range)
+    end
     frames = frames.map do |frame|
       frame.attributes.merge(images: frame.images_attachments.present? ? frame.images_attachments.map { |attachment| url_for(attachment.blob) } : '')
     end
