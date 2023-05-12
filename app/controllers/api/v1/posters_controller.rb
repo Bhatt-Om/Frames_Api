@@ -1,8 +1,18 @@
 class Api::V1::PostersController < ApplicationController
-
+  
   def index
-    posters = Poster.order(id: :asc)
+    posters = Poster.includes(image_attachment: :blob).order(id: :asc)
 
+    if params[:type].present?
+      posters = posters.where(poster_type: params[:type])
+    end
+    if params[:size].present?
+      posters = posters.where(poster_size: params[:size])
+    end
+    if params[:start] && params[:end].present?
+      range = [(params[:start]).to_i..(params[:end]).to_i]
+      posters = posters.where(price: range)
+    end
     posters = posters.map do |poster|
       poster.attributes.merge(image: url_for(poster.image))
     end
@@ -21,7 +31,7 @@ class Api::V1::PostersController < ApplicationController
       poster: ,
       success: true
     }, status: :ok
-    else  
+    else
       render json: {
         messages: poster.errors.full_messages.join(', ').to_s
       }, status: :not_found
@@ -31,6 +41,6 @@ class Api::V1::PostersController < ApplicationController
   private
 
   def poster_params
-    params.require(:poster).permit(:posterid, :description, :price, :image, poster_size: {}, poster_type: [])
+    params.require(:poster).permit(:posterid, :description, :price, :poster_type, :poster_size, :image)
   end
 end

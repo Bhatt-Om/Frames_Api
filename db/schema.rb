@@ -86,8 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_111924) do
     t.integer "posterid"
     t.text "description"
     t.integer "price"
-    t.text "poster_size"
-    t.text "poster_type"
+    t.string "poster_size"
+    t.string "poster_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

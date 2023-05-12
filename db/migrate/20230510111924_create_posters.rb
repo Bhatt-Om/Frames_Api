@@ -4,8 +4,8 @@ class CreatePosters < ActiveRecord::Migration[7.0]
       t.integer :posterid
       t.text :description
       t.integer :price
-      t.text :poster_size
-      t.text :poster_type
+      t.string :poster_size
+      t.string :poster_type
 
       t.timestamps
     end
