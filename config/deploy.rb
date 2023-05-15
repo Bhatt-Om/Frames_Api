@@ -1,4 +1,3 @@
-Change these
 server '13.235.254.239', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:Bhatt-Om/Frames_Api.git'
