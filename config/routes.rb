@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'api/v1/frames#index'
+  root 'pages#home'
   use_doorkeeper do
     skip_controllers :authorizations, :applications, :authorized_applications
   end
