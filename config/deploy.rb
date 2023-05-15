@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.2"
 
-server '172.31.47.215', port: 22, roles: [:web, :app, :db], primary: true
+server '13.235.254.239', port: 22, roles: [:web, :app, :db], primary: true
 set :application, "framemyphoto"
 set :repo_url, "git@github.com:Bhatt-Om/Frames_Api.git"
 
