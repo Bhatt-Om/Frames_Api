@@ -87,6 +87,6 @@ test:
 #
 production:
   <<: *default
-  database: framesShope_production
-  username: framesShope
-  password: <%= ENV["FRAMESSHOPE_DATABASE_PASSWORD"] %>
+  database: framemyphoto
+  username: postgres
+  password: root
