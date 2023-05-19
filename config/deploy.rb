@@ -90,6 +90,14 @@ namespace :deploy do
       end
   end
 
+  desc 'Copy production.rb to the server'
+  task :copy_production_rb do
+    on roles(:app) do
+      upload!('config/environments/production.rb', "#{release_path}/config/environments/production.rb")
+    end
+  end
+  before 'deploy:publishing', 'copy_production_rb'
+
   before :starting,     :check_revision
   # after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
