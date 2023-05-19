@@ -29,7 +29,6 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 append :rbenv_map_bins, 'puma', 'pumactl'
-append :linked_files, %w{config/credentials.yml.enc config/master.key}
 
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 ## Defaults:
@@ -40,7 +39,6 @@ append :linked_files, %w{config/credentials.yml.enc config/master.key}
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/credentials.yml.enc}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
