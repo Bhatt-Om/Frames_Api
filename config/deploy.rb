@@ -54,15 +54,10 @@ namespace :puma do
 
   
   before 'deploy:starting', 'puma:make_dirs'
-  before 'deploy:assets:precompile' do
-    run ["ln -nfs #{shared_path}/config/credentials.yml.enc #{release_path}/config/credentials.yml.enc",
-         "ln -nfs #{shared_path}/config/master.key #{release_path}/config/master.key"
-    ].join(" && ")
-  end
 end
 
 namespace :deploy do
-  
+
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
