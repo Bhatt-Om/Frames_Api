@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  routes.default_url_options[:host] = 'https://e15b-103-249-234-87.ngrok-free.app'
+  routes.default_url_options[:host] = 'https://2955-103-176-11-116.ngrok-free.app'
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # In the development environment your application's code is reloaded any time
@@ -56,7 +56,7 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  config.hosts << 'e15b-103-249-234-87.ngrok-free.app'
+  config.hosts << '2955-103-176-11-116.ngrok-free.app'
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

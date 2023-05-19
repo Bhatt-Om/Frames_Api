@@ -29,7 +29,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 append :rbenv_map_bins, 'puma', 'pumactl'
-append :linked_files, 'config/credentials.yml.enc'
+append :linked_files, 'config/credentials.yml.enc', 'config/master.key'
 
 ## Defaults:
 # set :scm,           :git
