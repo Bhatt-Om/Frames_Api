@@ -37,7 +37,8 @@ append :rbenv_map_bins, 'puma', 'pumactl'
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_releases, 5
-
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+append :linked_files, 'config/credentials.yml.enc'
 ## Linked Files & Directories (Default None):
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
