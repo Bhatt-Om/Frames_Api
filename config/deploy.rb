@@ -29,7 +29,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 append :rbenv_map_bins, 'puma', 'pumactl'
-# set :linked_files, %w{config/credentials.yml.enc config/master.key}
+set :linked_files, %w{config/credentials.yml.enc config/master.key}
 
 ## Defaults:
 # set :scm,           :git
@@ -55,6 +55,12 @@ namespace :puma do
 end
 
 namespace :deploy do
+  before "deploy:assets:precompile" do
+    run ["ln -nfs #{shared_path}/config/credentials.yml.enc #{release_path}/config/credentials.yml.enc",
+         "ln -nfs #{shared_path}/config/mast #{release_path}/config/master.key",
+    ].join(" && ")
+  end
+
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
