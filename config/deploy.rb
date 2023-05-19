@@ -54,7 +54,7 @@ namespace :puma do
 
   before 'deploy:assets:precompile' do
     run ["ln -nfs #{shared_path}/config/credentials.yml.enc #{release_path}/config/credentials.yml.enc",
-         "ln -nfs #{shared_path}/config/master.key #{release_path}/config/master.key",
+         "ln -nfs #{shared_path}/config/master.key #{release_path}/config/master.key"
     ].join(" && ")
   end
 
