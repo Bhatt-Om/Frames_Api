@@ -56,3 +56,6 @@ gem 'devise'
 gem 'doorkeeper'
 
 gem 'pry-rails'
+
+gem 'dotenv-rails'
+

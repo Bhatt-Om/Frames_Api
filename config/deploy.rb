@@ -39,8 +39,8 @@ append :rbenv_map_bins, 'puma', 'pumactl'
 # set :keep_releases, 5
 # ...
 
-set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+# set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc')
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # ...
 
