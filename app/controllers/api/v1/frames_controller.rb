@@ -1,5 +1,5 @@
 class Api::V1::FramesController < ApplicationController
-  # before_action :doorkeeper_authorize!, only: [:create]
+  before_action :doorkeeper_authorize!, only: [:create]
   def index
     frames = Frame.includes(images_attachments: :blob).order(id: :asc)
     if params[:frame_material].present?
