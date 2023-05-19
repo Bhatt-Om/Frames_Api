@@ -30,3 +30,4 @@
 
 # Ignore Tested Files
 /test/*
+/.env
