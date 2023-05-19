@@ -52,10 +52,7 @@ group :development do
 end
 
 gem 'devise'
-
 gem 'doorkeeper'
-
 gem 'pry-rails'
-
 gem 'dotenv-rails'
-
+gem 'aws-sdk-s3'
