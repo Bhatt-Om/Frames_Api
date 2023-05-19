@@ -31,7 +31,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 append :rbenv_map_bins, 'puma', 'pumactl'
 # append :linked_files, %w{config/credentials.yml.enc config/master.key}
 
-# set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc', 'config/master.key')
+set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc', 'config/master.key')
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :main
@@ -52,11 +52,11 @@ namespace :puma do
     end
   end
 
-  # before 'deploy:assets:precompile' do
-  #   run ["ln -nfs #{shared_path}/config/credentials.yml.enc #{release_path}/config/credentials.yml.enc",
-  #        "ln -nfs #{shared_path}/config/master.key #{release_path}/config/master.key"
-  #   ].join(" && ")
-  # end
+  before 'deploy:assets:precompile' do
+    run ["ln -nfs #{shared_path}/config/credentials.yml.enc #{release_path}/config/credentials.yml.enc",
+         "ln -nfs #{shared_path}/config/master.key #{release_path}/config/master.key"
+    ].join(" && ")
+  end
 
   before 'deploy:starting', 'puma:make_dirs'
 end
