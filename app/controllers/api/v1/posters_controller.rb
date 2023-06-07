@@ -38,6 +38,14 @@ class Api::V1::PostersController < ApplicationController
     end
   end
 
+  def destroy
+    poster = Poster.find_by(params[:id])
+    poster.destroy
+    render json: {
+      messages: 'Poster was successfully Deleted',
+      success: true
+    }, status: :ok
+  end
   private
 
   def poster_params

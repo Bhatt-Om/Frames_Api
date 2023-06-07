@@ -43,6 +43,15 @@ class Api::V1::FramesController < ApplicationController
     end
   end
 
+  def destroy
+    frame = Frame.find_by(id: params[:id])
+    frame.destroy
+    render json: {
+    messages: 'Frame was successfully Deleted',
+    success: true
+    }, status: :ok
+  end
+
   # def show_frame_by_material(params[:frame_material])
   #   frames = Frame.where(types_of_material: params[:frame_material]).includes(images_attachments: :blob).order(id: :asc).map do |u|
   #     u.attributes.merge(images: u.images_attachments.present? ? u.images_attachments.map{ |attachment| url_for(attachment.blob) } : '')
